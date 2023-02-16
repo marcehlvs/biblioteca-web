@@ -27,9 +27,9 @@
         <asp:Repeater ID="repRepetidor" runat="server">
             <ItemTemplate>
                 <div class="col">
-                    <div class="card">
+                    <div class="card ">
                         <img src="<%#Eval("UrlTapaLibro")%>" class="card-img-top" 
-                            alt="imagen-libro"/>
+                            alt="imagen-libro" style="width: 70%; height: 70%;" "object-fit cover;"/>
                         <div class="card-body">
                             <h5 class="card-title"><%#Eval("Titulo") %></h5>
                             <h6 class="card-title"><%#Eval("Autor") %></h6>
