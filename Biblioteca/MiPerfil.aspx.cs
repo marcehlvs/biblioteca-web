@@ -43,6 +43,10 @@ namespace Biblioteca
         {
             try
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
+
                 TraineeNegocio negocio = new TraineeNegocio();
                 Trainee user = (Trainee)Session["trainee"];
                 //Escribir img si se cargó algo
@@ -58,9 +62,6 @@ namespace Biblioteca
                 
                //guardar datos perfil 
                 negocio.actualizar(user);
-
-       
-
                 //leer img
 
                 Image img = (Image)Master.FindControl("imgAvatar");

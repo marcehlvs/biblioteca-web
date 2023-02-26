@@ -22,9 +22,23 @@ namespace Biblioteca
             TraineeNegocio negocio = new TraineeNegocio();
             try
             {
-                
+                //    if (String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(txtPassword.Text))
+                //    {
+                //        Session.Add("error", "Los campos email y password no pueden permancer vacios.");
+                //        Response.Redirect("Error.aspx");
+                //    }
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
+                if (Validacion.validaTextoVacio(txtEmail) || Validacion.validaTextoVacio(txtPassword))
+                {
+                    Session.Add("error", "Los campos email y password no pueden estar vacios.");
+                    Response.Redirect("Error.aspx");
+                    
+                }
+
                 trainee.Email = txtEmail.Text;
-                trainee.Pass = txtPassword2.Text;
+                trainee.Pass = txtPassword.Text;
                 if (negocio.Login(trainee))
                 {
                     Session.Add("trainee", trainee);
@@ -36,12 +50,15 @@ namespace Biblioteca
                     Response.Redirect("Error.aspx", false);
                 }
             }
+            catch (System.Threading.ThreadAbortException ex) { }
             catch (Exception ex)
             {
 
                 Session.Add("error", ex.ToString());
                 Response.Redirect("Error.aspx");
             }
+
+
         }
     }
 }

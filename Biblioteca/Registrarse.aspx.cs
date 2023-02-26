@@ -24,6 +24,9 @@ namespace Biblioteca
         {
             try
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
                 Trainee user = new Trainee();
                 TraineeNegocio traineeNegocio = new TraineeNegocio();
                 EmailService emailService = new EmailService(); 

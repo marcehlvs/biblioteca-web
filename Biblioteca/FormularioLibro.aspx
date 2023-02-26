@@ -14,6 +14,7 @@
             <div class="mb-3">
                 <label for="txtCodigo" class="form-label">Código: </label>
                 <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator CssClass="validacion" ErrorMessage="⚠️ El codigo es requerido." ControlToValidate="txtCodigo" runat="server" />
             </div>
             <div class="mb-3">
                 <label for="ddlCategoria" class="form-label">Categoria: </label>
@@ -22,11 +23,13 @@
             <div class="mb-3">
                 <label for="txtTitulo" class="form-label">Título: </label>
                 <asp:TextBox ID="txtTitulo" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator CssClass="validacion" ErrorMessage="⚠️ El título es requerido." ControlToValidate="txtTitulo" runat="server" />
             </div>
 
             <div class="mb-3">
                 <label for="txtAutor" class="form-label">Autor/a: </label>
                 <asp:TextBox ID="txtAutor" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator CssClass="validacion" ErrorMessage="⚠️ Autor/a es requerido." ControlToValidate="txtAutor" runat="server" />
             </div>
             
             <div class="mb-3">

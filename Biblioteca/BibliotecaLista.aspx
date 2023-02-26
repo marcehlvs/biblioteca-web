@@ -12,23 +12,30 @@
         </div>
     </div>
     
-    <asp:GridView ID="dgvListaLibros" runat="server" CssClass="table"
-        AutoGenerateColumns="false" DataKeyNames="IdLibros" 
+    <asp:GridView ID="dgvListaLibros" runat="server" CssClass="table-light"
+        AutoGenerateColumns="false" BorderColor="White" DataKeyNames="IdLibros" 
         OnSelectedIndexChanged="dgvListaLibros_SelectedIndexChanged"
         OnPageIndexChanging="dgvListaLibros_PageIndexChanging" AllowPaging="true"
         PageSize="5">
+        <RowStyle BorderStyle="Solid" BorderWidth="1px" />
         <Columns>
-            <asp:BoundField HeaderText="Categoria" DataField="Categoria.Categoria"/> 
-            <asp:BoundField HeaderText="Titulo" DataField="Titulo"/> 
-            <asp:BoundField HeaderText="Autor" DataField="Autor"/> 
-            <asp:BoundField HeaderText="Descripcion" DataField="Descripcion"/>
-            <asp:BoundField HeaderText="Fecha de publicación" DataField="FechaPublicacion" />
-            <asp:CheckBoxField HeaderText="Disponibilidad" DataField="Disponibilidad" />
-            <asp:CommandField HeaderText="Acción" ShowSelectButton="True" SelectText="✍" />
+            <asp:BoundField HeaderText="Categoria" ItemStyle-HorizontalAlign="Center" DataField="Categoria.Categoria" 
+                ItemStyle-Font-Size="14px" ItemStyle-ForeColor="white"/> 
+            <asp:BoundField HeaderText="Titulo" ItemStyle-HorizontalAlign="Center" DataField="Titulo"
+                ItemStyle-Font-Size="14px" ItemStyle-ForeColor="white"/> 
+            <asp:BoundField HeaderText="Autor" ItemStyle-HorizontalAlign="Center" DataField="Autor"
+                ItemStyle-Font-Size="14px" ItemStyle-ForeColor="white"/> 
+            <asp:BoundField HeaderText="Descripcion" DataField="Descripcion"
+                ItemStyle-Font-Size="14px" ItemStyle-ForeColor="white"/>
+            <asp:BoundField HeaderText="Fecha de publicación" ItemStyle-HorizontalAlign="Center" DataField="FechaPublicacion"
+                ItemStyle-Font-Size="14px" ItemStyle-ForeColor="white"/>
+            <asp:CheckBoxField HeaderText="Disponibilidad" ItemStyle-HorizontalAlign="Center" DataField="Disponibilidad" />
+            <asp:CommandField HeaderText="Acción" ItemStyle-HorizontalAlign="Center" ShowSelectButton="True" SelectText="✍" />
             
         </Columns>
+        <HeaderStyle HorizontalAlign ="Center" />
     </asp:GridView>
-
+    <br />
     <a href="FormularioLibro.aspx" class="btn btn-primary">Agregar</a>
 
 </asp:Content>

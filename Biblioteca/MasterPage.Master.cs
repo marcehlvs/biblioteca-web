@@ -13,23 +13,32 @@ namespace Biblioteca
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            imgAvatar.ImageUrl = "https://www.nicepng.com/png/detail/73-730334_user-is-a-person-who-can-access-the.png";
-            if (!(Page is Login || Page is Registrarse || Page is Default || Page is Error))
+            if (Seguridad.sesionActiva(Session["trainee"]))
+            {
+                Trainee user = (Trainee)Session["trainee"];
+                lblUser.Text = user.Email;
+                if (!string.IsNullOrEmpty(user.ImagenPerfil))
+                    imgAvatar.ImageUrl = "~/Images/" + user.ImagenPerfil + "?v=" + DateTime.Now.Ticks.ToString();
+            }
+            else
+            {
+                imgAvatar.ImageUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+            }
+
+            if (!(Page is Login || Page is Registrarse || Page is Error || Page is Default))
             {
                 if (!Seguridad.sesionActiva(Session["trainee"]))
-                    Response.Redirect("Login.aspx", false);
+                    Response.Redirect("Login.aspx");
                 else
                 {
                     Trainee user = (Trainee)Session["trainee"];
                     lblUser.Text = user.Email;
                     if (!string.IsNullOrEmpty(user.ImagenPerfil))
-                        imgAvatar.ImageUrl = "~/Images" + user.ImagenPerfil;
-
+                        imgAvatar.ImageUrl = "~/Images/" + user.ImagenPerfil + "?v=" + DateTime.Now.Ticks.ToString();
                 }
-            }
-            
-        }
 
+            }
+        }
         protected void btnSalir_Click(object sender, EventArgs e)
         {
             Session.Clear();

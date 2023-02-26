@@ -80,6 +80,9 @@ namespace Biblioteca
         {
             try
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                    return; 
                 Libro altaLibro = new Libro();
                 LibroNegocio negocio = new LibroNegocio();
                 
@@ -132,7 +135,7 @@ namespace Biblioteca
                 {
                     LibroNegocio negocio = new LibroNegocio();
                     negocio.eliminar(int.Parse(txtIdLibros.Text));
-                    Response.Redirect("BibliotecaLista.aspx");
+                    Response.Redirect("BibliotecaLista.aspx", false);
                 }
             }
             catch (Exception ex)
@@ -149,13 +152,13 @@ namespace Biblioteca
                 LibroNegocio negocio = new LibroNegocio();
                 Libro seleccionado = (Libro)Session["libroSeleccionado"];
                 negocio.eliminarLogico(seleccionado.IdLibros, !seleccionado.Disponibilidad);
-                Response.Redirect("BibliotecaLista.aspx");
+                Response.Redirect("BibliotecaLista.aspx", false);
             }
             catch (Exception ex)
             {
 
                 Session.Add("error", ex);
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx", false);
             }
         }
 

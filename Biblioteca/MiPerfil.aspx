@@ -8,15 +8,17 @@
             <div class="mb-3">
                 <label class="form-label">Email</label>
                 <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control"></asp:TextBox>
-
             </div>
             <div class="mb-3">
                 <label class="form-label">Nombre</label>
                 <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator CssClass="validacion" ErrorMessage="⚠️ El nombre es requerido." ControlToValidate="txtNombre" runat="server" />
             </div>
             <div class="mb-3">
                 <label class="form-label">Apellido</label>
                 <asp:TextBox runat="server" ID="txtApellido" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator CssClass="validacion" ErrorMessage="⚠️ El apellido es requerido." ControlToValidate="txtApellido" runat="server" />
+
             </div>
             <div class="mb-3">
                 <label class="form-label">Fecha de Nacimiento</label>
@@ -28,8 +30,8 @@
                 <label class="form-label" runat="server">Imagen Perfil</label>
                 <input type="file" id="txtImagen" runat="server" class="form-control" />
             </div>
-            <asp:Image runat="server" ID="imgNuevoPerfil" ImageUrl="https://palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg"
-                cssClass="img-fluid mb-3"/>
+            <asp:Image  ID="imgNuevoPerfil" ImageUrl="https://palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg"
+                cssClass="img-fluid mb-3" runat="server"/>
         </div>
     </div>
     <div class="row">

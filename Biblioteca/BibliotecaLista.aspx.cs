@@ -26,7 +26,9 @@ namespace Biblioteca
                 Session.Add("listaBiblioteca", negocio.listarConSP());
                 dgvListaLibros.DataSource = negocio.listarConSP();
                 dgvListaLibros.DataBind();
-            
+                dgvListaLibros.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+
+
         }
 
         protected void dgvListaLibros_SelectedIndexChanged(object sender, EventArgs e)
